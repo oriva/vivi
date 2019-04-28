@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     viviFunc[3] = $('.about-functions__phone_3').offset().top - winHeight + $('.about-functions__phone_3').height()/2;
     viviFunc[4] = $('.about-functions__phone_4').offset().top - winHeight + $('.about-functions__phone_4').height()/2;
     viviFunc[5] = $('.about-functions__phone_5').offset().top - winHeight + $('.about-functions__phone_5').height()/2;
-    viviFunc[6] = $('.about-functions__phone_6').offset().top - winHeight + $('.about-functions__phone_6').height()/2;
+    if($('.about-functions__phone_6').length)
+        viviFunc[6] = $('.about-functions__phone_6').offset().top - winHeight + $('.about-functions__phone_6').height()/2;
 
     $(window).on('scroll', ()=>{
         let pos = $(window).scrollTop();
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('.about-functions__phone_5').removeClass('hide');
             a[viviFunc[5]] = true;
         }
-        if(!a[viviFunc[6]] && pos>viviFunc[6]) {
+        if(!a[viviFunc[6]] && pos>viviFunc[6] && $('.about-functions__phone_6').length) {
             $('.about-functions__phone_6').removeClass('hide');
             a[viviFunc[6]] = true;
         }

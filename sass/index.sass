@@ -88,6 +88,8 @@
   -webkit-background-size: contain
   background-size: contain
   width: 100%
+  &.client
+    background-image: url('/img/bg-phone-client.jpg')
   
 .vivi-phone-in
   width: 50%
@@ -197,9 +199,14 @@
       top: 0
       object-fit: contain
     &_1
-      -webkit-mask-box-image: url('/img/functions/cloud_1.png')
-      mask-border: url('/img/functions/cloud_1.png')
-      background-color: #F6FFD2
+      &:not(.client)
+        background-color: #F6FFD2
+        -webkit-mask-box-image: url('/img/functions/cloud_1.png')
+        mask-border: url('/img/functions/cloud_1.png')
+      &.client
+        background-color: #FFD2D2
+        -webkit-mask-box-image: url('/img/functions/cloud_3.svg')
+        mask-border: url('/img/functions/cloud_3.svg')
       img
         transition: .9s ease-in-out
         transform: translateY(0px)
@@ -207,9 +214,13 @@
         img
           transform: translateY(130px)
     &_2
-      -webkit-mask-box-image: url('/img/functions/cloud_2.svg')
-      mask-border: url('/img/functions/cloud_2.svg')
       background-color: #E3D2FF
+      &:not(.salon)
+        -webkit-mask-box-image: url('/img/functions/cloud_2.svg')
+        mask-border: url('/img/functions/cloud_2.svg')
+      &.salon
+        -webkit-mask-box-image: url('/img/functions/salon/cloud_2.svg')
+        mask-border: url('/img/functions/salon/cloud_2.svg')
       img
         transition: .9s ease-in-out
         transform: translateY(0px)
@@ -217,17 +228,34 @@
         img
           transform: translateY(40%)
     &_3
-      background-image: url('/img/functions/cloud_3.svg')
-      img
-        transition: .6s ease-in-out
-        transform: scale(1)
-      &.hide
+      &:not(.client)
+        background-image: url('/img/functions/cloud_3.svg')
         img
-          transform: scale(0)
+          transition: .6s ease-in-out
+          transform: scale(1)
+        &.hide
+          img
+            transform: scale(0)
+      &.client
+        background-color: #F6FFD2
+        -webkit-mask-box-image: url('/img/functions/cloud_1.svg')
+        mask-border: url('/img/functions/cloud_1.svg')
+        img
+          transition: .9s ease-in-out
+          transform: translateY(0px)
+        &.hide
+          img
+            transform: translateY(50%)
     &_4
-      -webkit-mask-box-image: url('/img/functions/cloud_4.svg')
-      mask-border: url('/img/functions/cloud_4.svg')
       background-color: #D2FFD4
+      &:not(.salon)
+        -webkit-mask-box-image: url('/img/functions/cloud_4.svg')
+        mask-border: url('/img/functions/cloud_4.svg')
+      &.salon
+        -webkit-mask-box-image: url('/img/functions/cloud_2.svg')
+        mask-border: url('/img/functions/cloud_2.svg')
+      &.client
+        background-color: #D2F1FF
       img
         transition: .9s ease-in-out
         transform: translateY(0px)
@@ -235,13 +263,24 @@
         img
           transform: translateY(50%)
     &_5
-      background-image: url('/img/functions/cloud_5.svg')
-      img
-        transition: .6s ease-in-out
-        transform: scale(1)
-      &.hide
+      &:not(.client)
+        background-image: url('/img/functions/cloud_5.svg')
         img
-          transform: scale(0)
+          transition: .6s ease-in-out
+          transform: scale(1)
+        &.hide
+          img
+            transform: scale(0)
+      &.client
+        background-color: #D2FFD4
+        -webkit-mask-box-image: url('/img/functions/client/cloud_5.svg')
+        mask-border: url('/img/functions/client/cloud_5.svg')
+        img
+          transition: .9s ease-in-out
+          transform: translateY(0px)
+        &.hide
+          img
+            transform: translateY(50%)
     &_6
       background-image: url('/img/functions/cloud_6.svg')
       img
