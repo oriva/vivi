@@ -73,3 +73,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+$('form').on('submit', e=>{
+    e.preventDefault();
+    let div = document.createElement('div');
+    div.className = 'modal-send';
+    div.innerHTML = '\t<div class="modal-send__bg"></div>\n' +
+        '\t<div class="modal-send__content">\n' +
+        '\t\t<div class="close">\n' +
+        '\t\t\t<img src="/img/close.svg" alt="">\n' +
+        '\t\t</div>\n' +
+        '\t\t<span class="text-middle text-orange padding-bottom-small">Благодарим за оставленную заявку!</span>\n' +
+        '\t\t<span>Проверьте свою почту для получения дополнительной информации.</span>\n' +
+        '\t</div>';
+    let body = document.querySelector('body');
+    body.appendChild(div);
+    setTimeout(() => {
+        div.classList.add('show');
+    }, 10);
+    setTimeout(() => {
+        div.classList.remove('show');
+        setTimeout(() => {
+            div.addEventListener('transitionend', () => div.parentNode.removeChild(div));
+        }, 10);
+    }, 3000);
+    div.addEventListener('click', (e) => {
+        if (e.target.closest('.close') || e.target.classList.contains('modal-send__bg')) {
+            div.classList.remove('show');
+            setTimeout(() => {
+                div.addEventListener('transitionend', () => div.parentNode.removeChild(div));
+            }, 10);
+        }
+    });
+});

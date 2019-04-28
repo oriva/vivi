@@ -2,6 +2,60 @@
 @import "mixins"
 @import "foundation"
 @import "checkbox"
+.modal-send
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  position: fixed
+  z-index: 11
+  height: 100%
+  width: 100%
+  left: 0
+  top: 0
+  opacity: 0
+  transition: .7s
+  &.show
+    opacity: 1
+  &__bg
+    position: absolute
+    z-index: 1
+    height: 100%
+    width: 100%
+    left: 0
+    top: 0
+    background-color: rgba(0,0,0,.8)
+  &__content
+    z-index: 2
+    display: block
+    position: relative
+    width: 100%
+    max-width: 540px
+    max-height: 100vh
+    margin-left: auto
+    margin-right: auto
+    -ms-overflow-y: auto
+    overflow-y: auto
+    background-color: #fff
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    padding: 64px 60px
+    span
+      display: block
+      text-align: center
+    .close
+      position: absolute
+      top: 16px
+      right: 16px
+      height: 16px
+      width: 16px
+      cursor: pointer
+      img
+        display: block
+        width: 100%
+      &:hover
+        opacity: .6
+
 .header
   background-color: #F8FCFF
   &__nav
@@ -10,6 +64,7 @@
       vertical-align: middle
       margin-left: 27px
       img
+        display: block
         width: 100%
       &:nth-child(1)
         width: 65px
