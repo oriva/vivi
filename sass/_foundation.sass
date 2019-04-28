@@ -1,15 +1,19 @@
 @import "mixins"
+
+$main-font: 24px
+
 html, body
   width: 100%
+  min-width: 320px
+  overflow-x: hidden
 
 body
-  overflow-x: hidden
   min-height: 100%
   color: #696969
 
 body, input, select, button, h2, h3
   font-family: 'Muller', sans-serif
-  font-size: 24px
+  font-size: $main-font
   font-synthesis: none
   outline: 0
   -moz-font-feature-settings: 'kern'
@@ -53,37 +57,37 @@ ul, li, ol
   text-align: right !important
 
 .padding-top-large
-  padding-top: 4em
+  padding-top: $main-font * 4
 
 .padding-bottom-large
-  padding-bottom: 4em
+  padding-bottom: $main-font * 4
 
 .padding-top-middle
-  padding-top: 2em
+  padding-top: $main-font * 2
 
 .padding-bottom-middle
-  padding-bottom: 2em
+  padding-bottom: $main-font * 2
 
 .padding-top-small-2
-  padding-top: 1.33em
+  padding-top: $main-font * 1.33
 
 .padding-bottom-small-2
-  padding-bottom: 1.33em
+  padding-bottom: $main-font * 1.33
 
 .padding-top-small
-  padding-top: 0.67em
+  padding-top: $main-font * 0.67
 
 .padding-bottom-small
-  padding-bottom: 0.67em
+  padding-bottom: $main-font * 0.67
 
 .text-large
+  font-size: $main-font * 2
   color: #000
-  font-size: 2em
   font-weight: bold
 
 .text-middle
+  font-size: $main-font * 1.3333
   color: #000
-  font-size: 1.3333em
 
 
 .text-orange
@@ -95,7 +99,7 @@ ul, li, ol
 .good-button
   background: linear-gradient(to bottom, #1AC9FC 0%, #1D73F1 50%, #1D73F1 100%) center top
   background-size: auto 200%
-  padding: 0.67em 0
+  padding: ($main-font * 0.67) 0
   border-radius: 15px
   color: #FFF
   -webkit-transition: .4s
@@ -107,5 +111,79 @@ ul, li, ol
     background-position: center bottom
 
 @media (max-width: 1200px)
+  $main-font: 16px
+
   body, input, select, button, h2, h3
-    font-size: 16px
+    font-size: $main-font
+
+  .padding-top-large
+    padding-top: $main-font * 4
+
+  .padding-bottom-large
+    padding-bottom: $main-font * 4
+
+  .padding-top-middle
+    padding-top: $main-font * 2
+
+  .padding-bottom-middle
+    padding-bottom: $main-font * 2
+
+  .padding-top-small-2
+    padding-top: $main-font * 1.33
+
+  .padding-bottom-small-2
+    padding-bottom: $main-font * 1.33
+
+  .padding-top-small
+    padding-top: $main-font * 0.67
+
+  .padding-bottom-small
+    padding-bottom: $main-font * 0.67
+
+  .text-large
+    font-size: $main-font * 2
+
+  .text-middle
+    font-size: $main-font * 1.3333
+
+  .good-button
+    padding: ($main-font * 0.67) 0
+
+@media (max-width: 768px)
+  $main-font: 12px
+
+  body, input, select, button, h2, h3
+    font-size: $main-font
+
+  .padding-top-large
+    padding-top: $main-font * 4
+
+  .padding-bottom-large
+    padding-bottom: $main-font * 4
+
+  .padding-top-middle
+    padding-top: $main-font * 2
+
+  .padding-bottom-middle
+    padding-bottom: $main-font * 2
+
+  .padding-top-small-2
+    padding-top: $main-font * 1.33
+
+  .padding-bottom-small-2
+    padding-bottom: $main-font * 1.33
+
+  .padding-top-small
+    padding-top: $main-font * 0.67
+
+  .padding-bottom-small
+    padding-bottom: $main-font * 0.67
+
+  .text-large
+    font-size: $main-font * 2
+
+  .text-middle
+    font-size: $main-font * 1.3333
+
+  .good-button
+    padding: ($main-font * 0.67) 0

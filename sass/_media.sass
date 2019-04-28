@@ -16,7 +16,76 @@
     top: 50px
 
   .reg-form
-    padding: 48px 76px
+    padding: 43px 76px
 
 @media (max-width: 768px)
-  div
+  .phone
+    height: 420px
+    margin-bottom: 50px
+
+@media (max-width: 576px)
+  .header
+    background-color: #F8FCFF
+    &__nav
+      a
+        margin-left: 0
+        margin-right: 10px
+        &:nth-child(1)
+          width: 55px
+        &:nth-child(2), &:nth-child(3)
+          width: 90px
+  .phone
+    height: 270px
+    width: 360px
+    margin-left: auto
+    margin-right: auto
+
+  .about-registration__mob-pad
+    padding-top: 20px
+    padding-bottom: 45px
+    display: block
+
+  .about-functions
+    h2
+      .text-orange
+        display: block
+    &__phone-block
+      & > *
+        h2
+          padding-top: 64px
+        p
+          padding-bottom: 20px
+        &:nth-child(1)
+          order: 2
+        &:nth-child(2)
+          order: 1
+          h2
+            padding-top: 0
+        &:nth-child(3)
+          order: 3
+        &:nth-child(4)
+          order: 4
+        &:nth-child(5)
+          order: 6
+        &:nth-child(6)
+          order: 5
+        &:nth-child(7)
+          order: 7
+        &:nth-child(8)
+          order: 8
+        &:nth-child(9)
+          order: 10
+        &:nth-child(10)
+          order: 9
+        &:nth-child(11)
+          order: 11
+        &:nth-child(12)
+          order: 12
+
+  .form-callback
+    .reg-form
+      margin-top: 20px
+      &__bg
+        left: -10%
+        width: 120%
+        height: 100%
