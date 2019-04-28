@@ -1,0 +1,111 @@
+@import "mixins"
+html, body
+  width: 100%
+
+body
+  overflow-x: hidden
+  min-height: 100%
+  color: #696969
+
+body, input, select, button, h2, h3
+  font-family: 'Muller', sans-serif
+  font-size: 24px
+  font-synthesis: none
+  outline: 0
+  -moz-font-feature-settings: 'kern'
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+h2, h3
+  font-weight: normal
+
+a
+  color: #151515
+  text-decoration: none
+
+button
+  background: none
+  outline: 0
+  border: 0
+  border-radius: 0
+  margin: 0
+  cursor: pointer
+
+body, h1, h2, h3, h4, h5, p, a, i, span, address, li, label, small, select, button
+  margin: 0
+  padding: 0
+
+ul, li, ol
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+.w-100
+  width: 100%
+
+.text-left
+  text-align: left !important
+
+.text-center
+  text-align: center !important
+
+.text-right
+  text-align: right !important
+
+.padding-top-large
+  padding-top: 4em
+
+.padding-bottom-large
+  padding-bottom: 4em
+
+.padding-top-middle
+  padding-top: 2em
+
+.padding-bottom-middle
+  padding-bottom: 2em
+
+.padding-top-small-2
+  padding-top: 1.33em
+
+.padding-bottom-small-2
+  padding-bottom: 1.33em
+
+.padding-top-small
+  padding-top: 0.67em
+
+.padding-bottom-small
+  padding-bottom: 0.67em
+
+.text-large
+  color: #000
+  font-size: 2em
+  font-weight: bold
+
+.text-middle
+  color: #000
+  font-size: 1.3333em
+
+
+.text-orange
+  color: #FF9371
+
+.text-grey
+  color: #696969
+
+.good-button
+  background: linear-gradient(to bottom, #1AC9FC 0%, #1D73F1 50%, #1D73F1 100%) center top
+  background-size: auto 200%
+  padding: 0.67em 0
+  border-radius: 15px
+  color: #FFF
+  -webkit-transition: .4s
+  -moz-transition: .4s
+  -ms-transition: .4s
+  -o-transition: .4s
+  transition: .4s
+  &:hover
+    background-position: center bottom
+
+@media (max-width: 1200px)
+  body, input, select, button, h2, h3
+    font-size: 16px
