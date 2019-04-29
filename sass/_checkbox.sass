@@ -1,4 +1,4 @@
-$check-size: 10px
+$check-size: 12px
 
 .clearfix::after
   content: ""
@@ -8,7 +8,7 @@ $check-size: 10px
   visibility: hidden
 
 .checkbox-ios
-  width: $check-size + 35px
+  width: $check-size + 19px
   margin-left: auto
   position: relative
   @extend .clearfix
@@ -26,6 +26,8 @@ $check-size: 10px
     height: $check-size + 5px
     margin-bottom: 0
     cursor: pointer
+    font-size: 0em
+    margin-left: 0
     &::before
       transition: .3s
       content: ""
@@ -33,8 +35,8 @@ $check-size: 10px
       position: absolute
       border-radius: 50%
       background-color: #fff
-      width: $check-size
-      height: $check-size
+      width: $check-size + 1px
+      height: $check-size + 1px
       top: 2px
       left: 3px
   &__value
@@ -55,7 +57,7 @@ $check-size: 10px
     background-color: #FFF
     &:before
       background-color: #3483f1
-      left: calc(100% - #{$check-size} - 3px)
+      left: calc(100% - #{$check-size} - 4px)
 
   &--blue
     .checkbox-ios__toggle:checked + .checkbox-ios__label

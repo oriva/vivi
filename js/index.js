@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let scene = $('.parallax'), parallax = [];
         for (let i = 0; i < scene.length; i++) {
             parallax[i] = new Parallax(scene[i], {
-                relativeInput: true
+                relativeInput: true,
+                hoverOnly: true
             });
         }
     } else {
@@ -25,9 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     $('.phone-group').addClass('show');
     let a = [];
-    let winHeight = $(window).height();
-    let viviPhotos = $('.what-is-vivi__mob-slider').offset().top - winHeight + $('.what-is-vivi__mob-slider').height();
-    let viviPhone = $('.vivi-phone-in__display').offset().top - winHeight + $('.vivi-phone-in__display').height()/3;
+    let viviPhone = '';
+    const winHeight = $(window).height();
+    const viviPhotos = $('.what-is-vivi__mob-slider').offset().top - winHeight + $('.what-is-vivi__mob-slider').height();
+    if($('.vivi-phone-in__display').length) {
+      viviPhone = $('.main-vivi-phone').offset().top;
+    }
     let viviFunc = [];
     viviFunc[1] = $('.about-functions__phone_1').offset().top - winHeight + $('.about-functions__phone_1').height()/2;
     viviFunc[2] = $('.about-functions__phone_2').offset().top - winHeight + $('.about-functions__phone_2').height()/2;
@@ -43,10 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
             $('.what-is-vivi__mob-slider').addClass('show');
             a[viviPhotos] = true;
         }
-        if(!a[viviPhone] && pos>viviPhone) {
-            $('.vivi-phone-in').removeClass('sleep');
-            a[viviPhone] = true;
-        }
+        if($('.vivi-phone-in__display').length)
+          if(!a[viviPhone] && pos>viviPhone) {
+              $('.vivi-phone-in').removeClass('sleep');
+              a[viviPhone] = true;
+          }
         if(!a[viviFunc[1]] && pos>viviFunc[1]) {
             $('.about-functions__phone_1').removeClass('hide');
             a[viviFunc[1]] = true;
