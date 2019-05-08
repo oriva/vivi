@@ -2,6 +2,10 @@
 @import "mixins"
 @import "foundation"
 @import "checkbox"
+.form
+  &__text-info
+    font-size: 16px
+    line-height: 16px
 .modal-send
   display: flex
   flex-wrap: wrap
@@ -14,6 +18,20 @@
   top: 0
   opacity: 0
   transition: .7s
+  &.form-modal &
+    &__content
+      max-width: 920px
+      background-repeat: no-repeat
+      background-image: url('/img/form-bg.svg')
+      -webkit-background-size: cover
+      background-size: cover
+
+  &:not(.form-modal)
+    &__content
+      span
+        display: block
+        text-align: center
+    
   &.show
     opacity: 1
   &__bg
@@ -40,9 +58,6 @@
     -moz-border-radius: 16px
     border-radius: 16px
     padding: 64px 60px
-    span
-      display: block
-      text-align: center
     .close
       position: absolute
       top: 16px
@@ -71,6 +86,53 @@
         margin-left: 0
       &:nth-child(2), &:nth-child(3)
         width: 118px
+
+.head-index
+  background-color: #F8FCFF
+  &__nav
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+    & > *
+      display: block
+      vertical-align: middle
+      img
+        display: block
+        width: 100%
+      &:nth-child(1)
+        width: 65px
+        margin-left: 0
+      &:nth-child(2), &:nth-child(3)
+        width: 118px
+
+.content-index
+  &__link
+    color: #1ac9fc
+@media (min-width: 992px)
+  .content-index
+    &:hover .content-index-block
+      filter: blur(2px)
+      &:hover
+        filter: blur(0)
+  .content-index-block
+    cursor: pointer
+    transition: all .5s cubic-bezier(0.19,1,.22,1)
+    .index-phone
+      cursor: pointer
+    .text-middle
+      color: #FF9371
+    .text-middle, p, a, .index-phone
+      transition: all .5s cubic-bezier(0.19,1,.22,1)
+    &:hover
+      filter: blur(0)
+      .text-middle
+        color: #1ac9fc
+
+.page-404-logo
+  width: 80%
+  margin-left: auto
+  margin-right: auto
+  display: block
 
 .phone
   height: 762px
@@ -139,7 +201,7 @@
   background-color: rgba(255, 229, 210, 0.1)
     
 .vivi-phone
-  background: url('/img/bg-phone.jpg') no-repeat center center
+  background: url('/img/bg-phone.svg') no-repeat center center
   -webkit-background-size: contain
   background-size: contain
   width: 100%
@@ -176,7 +238,7 @@
     img
       display: block
       width: 100%
-  &__push
+  &__push, &__push_2
     position: absolute
     z-index: 2
     top: 12.2%
@@ -184,17 +246,29 @@
     width: 85%
     max-height: 100%
     transition: .5s
+  &__push_2
+    top: 0
+    max-height: 0
   &.sleep &
     &__push
       top: 0
       max-height: 0
     &__display::before
       opacity: 0
+  &.double &
+    &__push_2
+      top: 12.2%
+      max-height: 100%
+      transition-delay: 0.7s
+    &__push
+      transition-delay: 0.7s
+      top: 25.3%
 
 .reg-form
   position: relative
   z-index: 2
-  padding: 68px 96px
+  &:not(.form-modal__form)
+    padding: 68px 96px
   &__bg
     z-index: -1
     position: absolute
@@ -220,6 +294,9 @@
     border-radius: 15px
   &__button
     width: 100%
+    &.load
+      opacity: .6
+      cursor: wait
 
 .political
   display: -ms-flex
@@ -237,6 +314,17 @@
     font-size: 8px
     color: #000
 
+@mixin cloud-mask($y: 40%)
+  img
+    transition: .9s ease-in-out
+    transform: translateY(0px)
+  &.hide
+    img
+      transform: translateY($y)
+@mixin mask-image($url)
+  -webkit-mask-box-image: url($url)
+  mask-image: url($url)
+
 .about-functions
   background-color: rgba(255, 229, 210, 0.1)
   &__phone
@@ -244,6 +332,13 @@
     background: no-repeat center center
     -webkit-background-size: contain
     background-size: contain
+    mask-size: contain
+    mask-repeat: no-repeat
+    mask-position: center center
+    &.index-phone
+      height: 320px
+      & > *
+        height: 100%
     img
       display: block
       height: 100%
@@ -256,34 +351,27 @@
     &_1
       &:not(.client)
         background-color: #F6FFD2
-        -webkit-mask-box-image: url('/img/functions/cloud_1.svg')
-        mask-image: url('/img/functions/cloud_1.svg')
+        @include mask-image('/img/functions/cloud_1.svg')
       &.client
         background-color: #FFD2D2
-        -webkit-mask-box-image: url('/img/functions/cloud_3.svg')
-        mask-image: url('/img/functions/cloud_3.svg')
-      img
-        transition: .9s ease-in-out
-        transform: translateY(0px)
-      &.hide
-        img
-          transform: translateY(130px)
+        @include mask-image('/img/functions/cloud_3.svg')
+      &.index-phone
+        background-color: #F6FFD2
+        @include mask-image('/img/functions/index-cloud_1.svg')
+      @include cloud-mask(130px)
     &_2
       background-color: #E3D2FF
       &:not(.salon)
-        -webkit-mask-box-image: url('/img/functions/cloud_2.svg')
-        mask-image: url('/img/functions/cloud_2.svg')
+        @include mask-image('/img/functions/cloud_2.svg')
       &.salon
-        -webkit-mask-box-image: url('/img/functions/salon/cloud_2.svg')
-        mask-image: url('/img/functions/salon/cloud_2.svg')
-      img
-        transition: .9s ease-in-out
-        transform: translateY(0px)
-      &.hide
+        @include mask-image('/img/functions/salon/cloud_2.svg')
+      &.index-phone
+        @include mask-image('/img/functions/index-cloud_2.svg')
         img
-          transform: translateY(40%)
+          transition-delay: .1s
+      @include cloud-mask(40%)
     &_3
-      &:not(.client)
+      &:not(.client):not(.index-phone)
         background-image: url('/img/functions/cloud_3.svg')
         img
           transition: .6s ease-in-out
@@ -293,30 +381,23 @@
             transform: scale(0)
       &.client
         background-color: #F6FFD2
-        -webkit-mask-box-image: url('/img/functions/cloud_1.svg')
-        mask-image: url('/img/functions/cloud_1.svg')
+        @include mask-image('/img/functions/cloud_1.svg')
+        @include cloud-mask(50%)
+      &.index-phone
+        background-color: #FFD2D2
+        @include mask-image('/img/functions/index-cloud_3.svg')
+        @include cloud-mask(50%)
         img
-          transition: .9s ease-in-out
-          transform: translateY(0px)
-        &.hide
-          img
-            transform: translateY(50%)
+          transition-delay: .2s
     &_4
       background-color: #D2FFD4
       &:not(.salon)
-        -webkit-mask-box-image: url('/img/functions/cloud_4.svg')
-        mask-image: url('/img/functions/cloud_4.svg')
+        @include mask-image('/img/functions/cloud_4.svg')
       &.salon
-        -webkit-mask-box-image: url('/img/functions/cloud_2.svg')
-        mask-image: url('/img/functions/cloud_2.svg')
+        @include mask-image('/img/functions/cloud_2.svg')
       &.client
         background-color: #D2F1FF
-      img
-        transition: .9s ease-in-out
-        transform: translateY(0px)
-      &.hide
-        img
-          transform: translateY(50%)
+      @include cloud-mask(50%)
     &_5
       &:not(.client)
         background-image: url('/img/functions/cloud_5.svg')
@@ -328,14 +409,8 @@
             transform: scale(0)
       &.client
         background-color: #D2FFD4
-        -webkit-mask-box-image: url('/img/functions/client/cloud_5.svg')
-        mask-image: url('/img/functions/client/cloud_5.svg')
-        img
-          transition: .9s ease-in-out
-          transform: translateY(0px)
-        &.hide
-          img
-            transform: translateY(50%)
+        @include mask-image('/img/functions/client/cloud_5.svg')
+        @include cloud-mask(50%)
     &_6
       background-image: url('/img/functions/cloud_6.svg')
       img

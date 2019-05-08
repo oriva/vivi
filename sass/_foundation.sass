@@ -8,7 +8,7 @@ html, body
   overflow-x: hidden
 
 body
-  min-height: 100%
+  overflow-y: hidden
   color: #696969
 
 body, input, select, button, h2, h3
@@ -95,6 +95,9 @@ ul, li, ol
 
 .text-grey
   color: #696969
+
+.text-black
+  color: #000
 
 .good-button
   background: linear-gradient(to bottom, #1AC9FC 0%, #1D73F1 50%, #1D73F1 100%) center top
@@ -187,3 +190,9 @@ ul, li, ol
 
   .good-button
     padding: ($main-font * 0.67) 0
+
+@media (max-width: 320px)
+  html
+    overflow-x: auto
+    padding: 0 20px
+    width: 360px

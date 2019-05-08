@@ -16,14 +16,69 @@
     top: 50px
 
   .reg-form
-    padding: 43px 76px
+    &:not(.form-modal__form)
+      padding: 43px 76px
+  .modal-send.form-modal .modal-send__content
+      max-width: 720px
+
+  .about-functions__phone
+    &.index-phone
+      height: 184px
+      flex: 0 0 210px
+
+  .content-index-block
+    justify-content: center
+    &:nth-child(1), &:nth-child(3)
+      & > *
+        &:first-child
+          order: 1
+        &:last-child
+          order: 2
+          padding-left: 30px
+          flex: 1 0 210px
+    &:nth-child(2)
+      & > *
+        &:first-child
+          order: 2
+        &:last-child
+          order: 1
+          padding-right: 30px
+          flex: 1 0 210px
+
+  .head-index
+    background-color: #F8FCFF
+    &__nav
+      display: flex
+      align-items: center
+      justify-content: space-evenly
+      & > *
+        display: block
+        vertical-align: middle
+        img
+          display: block
+          width: 100%
+        &:nth-child(1)
+          width: (65px / 1.3)
+          margin-left: 0
+        &:nth-child(2), &:nth-child(3)
+          width: (118px / 1.3)
 
 @media (max-width: 768px)
-  .phone
-    height: 420px
-    margin-bottom: 50px
+  .modal-send
+    min-width: 320px
+    overflow-y: auto
+    &.form-modal .modal-send__content
+      background-size: 200%
+      background-position: bottom
+      width: 90%
+      max-width: 400px
+      min-width: 320px
+      overflow-y: auto
 
-@media (max-width: 576px)
+  .form__text-info
+    display: block
+    margin-bottom: 64px
+
   .modal-send__content
     max-width: 290px
     padding: 60px 25px
@@ -39,8 +94,9 @@
         &:nth-child(2), &:nth-child(3)
           width: 90px
   .phone
-    height: 270px
+    height: 290px
     width: 360px
+    margin-bottom: 50px
     margin-left: auto
     margin-right: auto
 
@@ -123,3 +179,26 @@
         left: -10%
         width: 120%
         height: 100%
+
+@media (max-width: 576px)
+  .phone
+    height: 270px
+    width: 360px
+
+  .about-functions__phone
+    &.index-phone
+      height: 292px
+      flex: 0 0 320px
+      width: 320px
+  .content-index-block
+    justify-content: center
+    &:nth-child(1), &:nth-child(2), &:nth-child(3)
+      & > *
+        &:first-child
+          order: 1
+        &:last-child
+          order: 2
+          padding-left: 30px
+          flex: 0 0 100%
+          max-width: 320px
+          margin-bottom: 64px
