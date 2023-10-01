@@ -35,16 +35,14 @@ $message = '
 $mail = new PHPMailer(true);
 
 $mail->isSMTP(); 
-$mail->Host = 'smtp.yandex.ru';  
+$mail->Host = '';  
 $mail->SMTPAuth = true;                      
-$mail->Username = 'callback@litvinenko.digital'; // Ваш логин в Яндексе. Именно логин, без @yandex.ru
-$mail->Password = 'callback123'; // Ваш пароль
+$mail->Username = ''; // Ваш логин в Яндексе. Именно логин, без @yandex.ru
+$mail->Password = ''; // Ваш пароль
 $mail->SMTPSecure = 'ssl';                            
 $mail->Port = 465;
-$mail->setFrom('callback@litvinenko.digital'); // Ваш Email
-$mail->addAddress('vivi.my@yandex.ru'); // Email получателя
-$mail->addAddress('1formarketing@gmail.com'); // Email получателя
-//$mail->addAddress('weelman93@gmail.com'); // Email получателя
+$mail->setFrom(''); // Ваш Email
+$mail->addAddress(''); // Email получателя
 
 $mail->isHTML(true);
 $mail->Subject = $subject; // Заголовок письма

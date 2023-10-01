@@ -1,0 +1,26 @@
+{
+  "name": "vivi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss:compile": "node-sass scss/index.scss css/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oriva/vivi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oriva/vivi/issues"
+  },
+  "homepage": "https://github.com/oriva/vivi#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  },
+  "dependencies": {
+    "concat": "^1.0.3"
+  }
+}
